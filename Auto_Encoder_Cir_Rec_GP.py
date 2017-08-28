@@ -307,7 +307,7 @@ class AutoEncoder(object):
                                                  self.generated_images],\
                 feed_dict={self.input_imagec:img_batch_cir,self.input_imager:img_batch_rec,self.input_image:img_batch,\
                            self.selected_imagec:[img_batch_cir[cur_pos1]],self.selected_imager:[img_batch_rec[cur_pos1]]})
-                #gpdm_model.Y = np.squeeze(hidden_state_pose_eval1)
+                gpdm_model.Y = np.squeeze(hidden_state_pose_eval1)
                 gpdm_model.optimize(maxiter=1)
                 fout = open(self.logs_dir+'/X.txt','w')
                 for i in range(self.batch_size):
